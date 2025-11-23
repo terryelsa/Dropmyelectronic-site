@@ -1,0 +1,348 @@
+"use client"
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { 
+  FaBook, 
+  FaGraduationCap, 
+  FaRecycle, 
+  FaExclamationTriangle, 
+  FaLightbulb,
+  FaPlay,
+  FaDownload,
+  FaShare,
+  FaArrowRight,
+  FaUsers,
+  FaTree,
+  FaShieldAlt,
+  FaChartLine
+} from 'react-icons/fa';
+
+const Education = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  // Nairobi/Kenya specific educational content
+  const educationalContent = [
+    {
+      id: 1,
+      title: "E-Waste Situation in Kenya",
+      description: "Understanding the growing e-waste challenge in Nairobi and its impact on our environment and communities.",
+      category: "problem",
+      duration: "5 min read",
+      type: "article",
+      localStats: [
+        { value: "3,000+", label: "Tonnes e-waste in Nairobi yearly" },
+        { value: "17%", label: "Properly recycled" },
+        { value: "50%", label: "Growth rate in e-waste" }
+      ]
+    },
+    {
+      id: 2,
+      title: "NEMA E-Waste Regulations in Kenya",
+      description: "Learn about Kenya's environmental laws and regulations governing electronic waste disposal.",
+      category: "regulations",
+      duration: "8 min read",
+      type: "guide",
+      localRelevance: "Kenya-specific regulations"
+    },
+    {
+      id: 3,
+      title: "Dandora Dumpsite: The E-Waste Crisis",
+      description: "Case study on how informal e-waste handling affects Nairobi's largest dumpsite and surrounding communities.",
+      category: "case-study",
+      duration: "10 min read",
+      type: "case-study",
+      location: "Nairobi, Dandora"
+    },
+    {
+      id: 4,
+      title: "How to Properly Dispose Phones in Kenya",
+      description: "Step-by-step guide for Nairobi residents on safely disposing of mobile phones and accessories.",
+      category: "how-to",
+      duration: "6 min read",
+      type: "tutorial",
+      devices: ["Smartphones", "Tablets"]
+    },
+    {
+      id: 5,
+      title: "Kenyans Turning E-Waste into Opportunity",
+      description: "Success stories of local entrepreneurs creating businesses from e-waste recycling in Nairobi.",
+      category: "success",
+      duration: "7 min read",
+      type: "story",
+      localExamples: true
+    },
+    {
+      id: 6,
+      title: "E-Waste & Health: Risks in Urban Nairobi",
+      description: "Understanding the health implications of improper e-waste handling in dense urban areas.",
+      category: "health",
+      duration: "9 min read",
+      type: "article",
+      focus: "Urban health impacts"
+    }
+  ];
+
+  const categories = [
+    { id: 'all', name: 'All Topics', icon: <FaBook />, count: educationalContent.length },
+    { id: 'problem', name: 'The Problem', icon: <FaExclamationTriangle />, count: 1 },
+    { id: 'regulations', name: 'Kenyan Laws', icon: <FaShieldAlt />, count: 1 },
+    { id: 'how-to', name: 'How-To Guides', icon: <FaLightbulb />, count: 1 },
+    { id: 'health', name: 'Health & Safety', icon: <FaUsers />, count: 1 },
+    { id: 'success', name: 'Success Stories', icon: <FaChartLine />, count: 1 },
+    { id: 'case-study', name: 'Case Studies', icon: <FaTree />, count: 1 }
+  ];
+
+  const filteredContent = activeCategory === 'all' 
+    ? educationalContent 
+    : educationalContent.filter(item => item.category === activeCategory);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Component */}
+
+      {/* Hero Section - Nairobi Focused */}
+      <section className="bg-gradient-to-br from-green-600 to-emerald-700 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
+              <FaGraduationCap className="text-green-300" />
+              <span className="text-green-300 font-semibold">Nairobi E-Waste Education Hub</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Learn About <span className="text-yellow-300">E-Waste</span> in <span className="text-green-300">Kenya</span>
+            </h1>
+            
+            <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
+              Empowering Nairobi residents with knowledge about electronic waste, local regulations, 
+              and sustainable practices tailored for our Kenyan context.
+            </p>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-yellow-300">3,000+</div>
+                <div className="text-green-200 text-sm">Tonnes e-waste in Nairobi</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-yellow-300">17%</div>
+                <div className="text-green-200 text-sm">Properly recycled</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-yellow-300">50+</div>
+                <div className="text-green-200 text-sm">Certified centers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories Navigation */}
+      <section className="py-8 bg-white border-b border-gray-200 sticky top-0 z-30">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map(category => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+                  activeCategory === category.id
+                    ? 'bg-green-500 text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {category.icon}
+                <span className="font-medium">{category.name}</span>
+                <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                  activeCategory === category.id ? 'bg-white/20' : 'bg-gray-300'
+                }`}>
+                  {category.count}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Educational Content Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredContent.map(item => (
+                <div key={item.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                  <div className="p-6">
+                    {/* Category Badge */}
+                    <div className="flex justify-between items-start mb-4">
+                      <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                        item.category === 'problem' ? 'bg-red-100 text-red-700' :
+                        item.category === 'regulations' ? 'bg-blue-100 text-blue-700' :
+                        item.category === 'how-to' ? 'bg-green-100 text-green-700' :
+                        item.category === 'health' ? 'bg-orange-100 text-orange-700' :
+                        item.category === 'success' ? 'bg-purple-100 text-purple-700' :
+                        'bg-gray-100 text-gray-700'
+                      }`}>
+                        {categories.find(cat => cat.id === item.category)?.name}
+                      </span>
+                      <span className="text-xs text-gray-500">{item.duration}</span>
+                    </div>
+
+                    {/* Title & Description */}
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
+                    <p className="text-gray-600 mb-4">{item.description}</p>
+
+                    {/* Local Context Indicators */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {item.localStats && (
+                        <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">
+                          🇰🇪 Local Data
+                        </span>
+                      )}
+                      {item.localRelevance && (
+                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                          📍 Kenya Focus
+                        </span>
+                      )}
+                      {item.location && (
+                        <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                          🏙️ {item.location}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex justify-between items-center">
+                      <button className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold text-sm">
+                        <FaPlay className="text-xs" />
+                        Read More
+                        <FaArrowRight className="text-xs" />
+                      </button>
+                      <div className="flex gap-2">
+                        <button className="text-gray-400 hover:text-gray-600 transition-colors">
+                          <FaDownload className="text-sm" />
+                        </button>
+                        <button className="text-gray-400 hover:text-gray-600 transition-colors">
+                          <FaShare className="text-sm" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nairobi Specific Resources */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                <span className="text-green-600">Nairobi-Specific</span> Resources
+              </h2>
+              <p className="text-xl text-gray-600">
+                Tailored information for residents of Nairobi and surrounding areas
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Local Regulations */}
+              <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                    <FaShieldAlt className="text-white text-xl" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Kenyan E-Waste Laws</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Understand the legal framework governing e-waste management in Kenya, including NEMA regulations and compliance requirements.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <FaArrowRight className="text-green-500 text-xs" />
+                    Environmental Management and Coordination Act
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <FaArrowRight className="text-green-500 text-xs" />
+                    Waste Management Regulations 2006
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <FaArrowRight className="text-green-500 text-xs" />
+                    Extended Producer Responsibility
+                  </li>
+                </ul>
+                <Link href="/regulations" className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                  View Regulations
+                  <FaArrowRight className="text-sm" />
+                </Link>
+              </div>
+
+              {/* Community Initiatives */}
+              <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                    <FaUsers className="text-white text-xl" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Nairobi Community Programs</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Discover local initiatives, community clean-ups, and educational programs happening across Nairobi neighborhoods.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <FaArrowRight className="text-blue-500 text-xs" />
+                    School E-Waste Awareness Programs
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <FaArrowRight className="text-blue-500 text-xs" />
+                    Community Collection Drives
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <FaArrowRight className="text-blue-500 text-xs" />
+                    Youth Entrepreneurship in Recycling
+                  </li>
+                </ul>
+                <Link href="/community" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                  Join Programs
+                  <FaArrowRight className="text-sm" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 bg-gradient-to-br from-green-600 to-emerald-700 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Make a Difference in <span className="text-yellow-300">Nairobi</span>?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join thousands of Nairobi residents who are turning e-waste knowledge into environmental action.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/map" 
+              className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105"
+            >
+              Find Recycling Centers
+            </Link>
+            <Link 
+              href="/rewards" 
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 transform hover:scale-105"
+            >
+              Earn Rewards
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Component */}
+    </div>
+  );
+};
+
+export default Education;
