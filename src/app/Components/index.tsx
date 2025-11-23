@@ -1,22 +1,3 @@
-// import React from 'react'
-// import Hero from './Hero'
-// import Features from './Features'
-// import FAQ from './FAQ'
-
-// type Props = {}
-
-// const Home = (props: Props) => {
-//   return (
-//     <>
-//     <Hero/>
-//     <Features/>
-//     <FAQ/>
-//     </>
-//   )
-// }
-
-// export default Home
-
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -47,27 +28,21 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Component Here */}
-
-      {/* Hero Section - Clean & Modern */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100">
         <div className="container mx-auto px-4 text-center">
           <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             
-            {/* Simple, Clean Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6">
               Give Your Tech
               <br />
               <span className="text-green-600">A Second Life</span>
             </h1>
 
-            {/* Straightforward Subheading */}
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Recycle electronics easily, earn rewards, and make a real environmental impact. 
               Simple, secure, and rewarding.
             </p>
 
-            {/* Clean CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
                 href="/findcenters" 
@@ -87,7 +62,6 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Trust Indicators */}
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-gray-500">
               <div className="flex items-center gap-2">
                 <FaCheckCircle className="text-green-500" />
@@ -106,12 +80,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* KEEPING YOUR RED PROBLEM SECTION */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             
-            {/* Tab Navigation */}
             <div className="flex justify-center mb-12">
               <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-200">
                 <button
@@ -139,7 +111,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Tab Content */}
             <div className="transition-all duration-500">
               {activeTab === 'problem' && (
                 <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-8 md:p-12">
@@ -250,7 +221,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Simple Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -305,7 +275,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Simple Stats Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
@@ -313,19 +282,19 @@ const Home = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">10,000+</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">100+</div>
                 <div className="text-gray-600">Happy Users</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">50,000+</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">50+</div>
                 <div className="text-gray-600">Devices Recycled</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">500+</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">0+</div>
                 <div className="text-gray-600">Partner Locations</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">2,500+</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">200+</div>
                 <div className="text-gray-600">Tons CO₂ Reduced</div>
               </div>
             </div>
@@ -333,7 +302,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-20 bg-green-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -359,8 +327,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
     </div>
   );
 };

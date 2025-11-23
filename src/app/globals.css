@@ -548,7 +548,7 @@ body {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background-image: url("../assets/hero-pattern.svg");
+  background-image: url("../assets/ewaste.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -564,7 +564,7 @@ body {
   transform: translate(-50%, -50%);
   width: 90%;
   height: 100%;
-  background-image: url("../assets/hero-pattern.svg");
+  background-image: url("../assets/ewaste.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

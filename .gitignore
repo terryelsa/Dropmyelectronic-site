@@ -1,5 +1,5 @@
 # =================================================================
-# ELOCATE PROJECT GITIGNORE - COMPREHENSIVE VERSION
+# DropMyElectronic PROJECT GITIGNORE - COMPREHENSIVE VERSION
 # See https://help.github.com/articles/ignoring-files/ for more info
 # =================================================================
 
@@ -8,7 +8,6 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-package-lock.json
 yarn.lock
 npm-shrinkwrap.json
 
