@@ -15,7 +15,7 @@ const About = () => {
             About <span className="text-green-600">DropMyElectronic</span>
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
-            We're revolutionizing e-waste management through innovative technology and community-driven solutions for a sustainable tomorrow.
+            We&apos;re revolutionizing e-waste management through innovative technology and community-driven solutions for a sustainable tomorrow.
           </p>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-12"></div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">

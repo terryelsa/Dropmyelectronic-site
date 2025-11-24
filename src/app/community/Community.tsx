@@ -348,7 +348,7 @@ const Community = () => {
                           </div>
                         </div>
                         
-                        <p className="text-gray-600 text-sm mb-4 italic">"{story.story}"</p>
+                        <p className="text-gray-600 text-sm mb-4 italic">&quot;{story.story}&quot;</p>
                         
                         <div className="flex justify-between items-center">
                           <div className="text-purple-600 font-bold">
@@ -519,7 +519,7 @@ const Community = () => {
             Join the <span className="text-yellow-300">Nairobi Community</span> Movement
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Together, we're cleaning up Nairobi and creating a sustainable future. Your community needs you!
+            Together, we&apos;re cleaning up Nairobi and creating a sustainable future. Your community needs you!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -16,7 +16,7 @@ const ContactUs = () => {
               Support & <span className="text-green-600">Contact</span>
             </h1>
             <p className="text-2xl text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
-              We're here to help you with any questions about e-waste recycling, our services, or partnership opportunities.
+              We&apos;re here to help you with any questions about e-waste recycling, our services, or partnership opportunities.
             </p>
             <div className="w-24 h-1 bg-green-500 mx-auto mb-12"></div>
 
@@ -83,7 +83,7 @@ const ContactUs = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Email Support</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Send us a detailed message and we'll get back to you within 2 hours during business hours.
+                Send us a detailed message and we&apos;ll get back to you within 2 hours during business hours.
               </p>
               <Link href="#contact-form" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors duration-300 w-full block">
                 Send Message
@@ -117,7 +117,7 @@ const ContactUs = () => {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-800 mb-4">Send Us a Message</h2>
               <p className="text-2xl text-gray-600">
-                Fill out the form below and we'll get back to you as soon as possible
+                Fill out the form below and we&apos;ll get back to you as soon as possible
               </p>
             </div>
             

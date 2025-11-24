@@ -189,7 +189,7 @@ const EnvironmentalImpact = () => {
                   {waterSaved.toLocaleString()} L
                 </div>
                 <div className="text-gray-600 font-semibold">Water Saved from Pollution</div>
-                <p className="text-gray-500 text-sm mt-2">Protecting Nairobi's water sources</p>
+                <p className="text-gray-500 text-sm mt-2">Protecting Nairobi&apos;s water sources</p>
               </div>
             </div>
           </div>
@@ -366,7 +366,7 @@ const EnvironmentalImpact = () => {
       <section className="py-20 bg-gradient-to-br from-green-600 to-emerald-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Be Part of Nairobi's <span className="text-yellow-300">Green Transformation</span>
+            Be Part of Nairobi&apos;s <span className="text-yellow-300">Green Transformation</span>
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Join thousands of Nairobi residents who are turning e-waste into environmental solutions and economic opportunities.
