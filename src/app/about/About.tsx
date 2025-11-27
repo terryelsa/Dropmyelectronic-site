@@ -6,7 +6,7 @@ const About = () => {
   return (
      <div className="min-h-screen bg-gray-50">          
         <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
             <FaRecycle className="text-3xl text-green-600" />
@@ -47,7 +47,7 @@ const About = () => {
         <section className="py-16 bg-white">
          <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-green-800 mb-6">Who We Are</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-green-800 mb-6">Who we are</h2>
               <p className="text-lg md:text-2xl text-gray-900 text-center flex-grow leading-relaxed">
               DropMyElectronic is a passionate team dedicated to solving the growing e-waste problem through innovative solutions and community engagement.
             </p>
@@ -91,7 +91,7 @@ const About = () => {
               <div className="text-green-700 text-3xl mb-4">
                 <FaLeaf className="mx-auto" />
                 </div>
-              <h3 className="text-2xl font-bold text-green-800 mb-3">Environmental Stewardship</h3>
+              <h3 className="text-2xl font-bold text-green-800 mb-3">Environmental stewardship</h3>
               <p className="text-gray-700 text-xl">
                 We believe in protecting our planet for future generations by promoting sustainable practices and reducing electronic waste.
               </p>
@@ -101,7 +101,7 @@ const About = () => {
               <div className="text-green-700 text-3xl mb-4">
                 <FaUsers className="mx-auto" />
               </div>
-              <h3 className="text-2xl font-bold text-green-800 mb-3">Community Focus</h3>
+              <h3 className="text-2xl font-bold text-green-800 mb-3">Community focus</h3>
               <p className="text-gray-700 text-xl">
                 We prioritize accessibility and education to empower communities to take action against e-waste in their neighborhoods.
               </p>
@@ -133,7 +133,7 @@ const About = () => {
        <section className="py-20 bg-white">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Join Our Mission</h2>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Join our mission</h2>
       <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
         Choose how you want to contribute to a sustainable future
       </p>
@@ -144,12 +144,12 @@ const About = () => {
         <div className="text-5xl mb-6 flex justify-center">
           <FaMapMarkerAlt className="text-white" />
         </div>
-        <h3 className="text-3xl font-bold mb-4">Find Recycling Centers</h3>
+        <h3 className="text-3xl font-bold mb-4">Find recycling centers</h3>
         <p className="text-2xl mb-6 opacity-90 leading-relaxed">
           Locate certified e-waste recycling centers near you and dispose of your electronics responsibly.
         </p>
-        <Link href="/map" className="inline-block bg-white text-xl text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
-          Explore Map
+        <Link href="/findcenters" className="inline-block bg-white text-xl text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
+          Explore map
         </Link>
       </div>
       
@@ -157,12 +157,12 @@ const About = () => {
         <div className="text-5xl mb-6 flex justify-center">
           <FaHandshake className="text-white" />
         </div>
-        <h3 className="text-3xl font-bold mb-4">Partner With Us</h3>
+        <h3 className="text-3xl font-bold mb-4">Partner with us</h3>
         <p className="text-2xl mb-6 opacity-90 leading-relaxed">
           Join our network of recycling centers, organizations, and environmental advocates.
         </p>
-        <Link href="/support" className="inline-block bg-white text-xl text-orange-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
-          Get Started
+        <Link href="/contactus" className="inline-block bg-white text-xl text-orange-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300">
+          Get started
         </Link>
       </div>
     </div>
