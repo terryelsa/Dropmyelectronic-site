@@ -22,7 +22,6 @@ import {
   FaEllipsisH
 } from 'react-icons/fa';
 
-// Define TypeScript interfaces
 interface GuideStep {
   step: number;
   title: string;
@@ -54,7 +53,6 @@ const RecyclingGuide = () => {
   const [selectedDevice, setSelectedDevice] = useState('smartphones');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Device categories with Nairobi-specific considerations
   const deviceCategories: DeviceCategory[] = [
     { 
       id: 'smartphones', 
@@ -128,7 +126,6 @@ const RecyclingGuide = () => {
     }
   ];
 
-  // Complete recycling guides for ALL device types
   const recyclingGuides: Record<string, RecyclingGuide> = {
     smartphones: {
       title: "Smartphone Recycling Guide",
@@ -564,44 +561,90 @@ const RecyclingGuide = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Component */}
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 to-emerald-700 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Complete Recycling <span className="text-yellow-300">Guides</span>
-            </h1>
-            <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-              Detailed step-by-step instructions for recycling all types of electronic devices in Nairobi. 
-              Earn rewards while protecting our environment.
-            </p>
+      <section className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 text-white py-20 overflow-hidden">
+  <div className="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+  
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-6xl mx-auto text-center">
+      <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
+        <span className="w-2 h-2 bg-yellow-300 rounded-full animate-pulse"></span>
+        <span className="text-xl font-medium">Smart recycling guides</span>
+      </div>
 
-            {/* Search Bar */}
-            <div className="bg-white rounded-xl p-2 shadow-2xl max-w-2xl mx-auto">
-              <div className="relative">
-                <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search for device types (phones, laptops, TVs, batteries...)"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 text-gray-800 rounded-lg border-0 focus:ring-2 focus:ring-green-500 focus:outline-none text-lg"
-                />
-              </div>
-            </div>
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        Complete recycling 
+        <span className="text-yellow-300 block mt-2">guides & resources</span>
+      </h1>
+
+      <p className="text-xl text-green-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Step-by-step instructions for recycling all electronic devices in Nairobi. 
+        Earn <span className="text-yellow-300 font-semibold">eco-points</span> while protecting our environment.
+      </p>
+
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-2 shadow-2xl max-w-2xl mx-auto border border-white/20">
+        <div className="relative">
+          <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-green-300 text-xl" />
+          <input
+            type="text"
+            placeholder="Search for devices: smartphones, laptops, TVs, batteries..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-12 pr-4 py-5 text-gray-800 rounded-xl border-0 focus:ring-2 focus:ring-yellow-300 focus:outline-none text-lg bg-white/95 backdrop-blur-sm transition-all duration-300 placeholder:text-gray-500"
+          />
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <kbd className="px-2 py-1 text-xs font-mono text-gray-500 bg-gray-100 rounded border hidden sm:inline-block">⌘K</kbd>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Main Content */}
+      <div className="mt-12 flex flex-wrap justify-center gap-8 text-green-100">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 bg-yellow-300 rounded-full"></div>
+          <span className="text-2sm font-medium">50+ Device types</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 bg-yellow-300 rounded-full"></div>
+          <span className="text-2sm font-medium">Step-by-step guides</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 bg-yellow-300 rounded-full"></div>
+          <span className="text-2sm font-medium">Earn rewards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+    <svg 
+      viewBox="0 0 1200 120" 
+      preserveAspectRatio="none" 
+      className="relative block w-full h-12"
+    >
+      <path 
+        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
+        opacity=".25" 
+        className="fill-white"
+      ></path>
+      <path 
+        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" 
+        opacity=".5" 
+        className="fill-white"
+      ></path>
+      <path 
+        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" 
+        className="fill-white"
+      ></path>
+    </svg>
+  </div>
+</section>
+
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               
-              {/* Device Categories Sidebar */}
               <div className="lg:col-span-1">
                 <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-4">
                   <h3 className="text-xl font-bold text-gray-800 mb-4">Device Types</h3>
@@ -637,11 +680,9 @@ const RecyclingGuide = () => {
                 </div>
               </div>
 
-              {/* Guide Content */}
               <div className="lg:col-span-3">
                 {selectedGuide && (
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    {/* Guide Header */}
                     <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-8">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="text-3xl">
@@ -656,7 +697,6 @@ const RecyclingGuide = () => {
                       </div>
                     </div>
 
-                    {/* Steps Section */}
                     <div className="p-8">
                       <h3 className="text-2xl font-bold text-gray-800 mb-6">Step-by-Step Guide</h3>
                       <div className="space-y-6">
@@ -677,7 +717,7 @@ const RecyclingGuide = () => {
                                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-2">
                                   <div className="flex items-center gap-2 text-blue-700 font-semibold mb-1">
                                     <FaCheckCircle />
-                                    Pro Tip
+                                    Pro tip
                                   </div>
                                   <p className="text-blue-600 text-sm">{step.tip}</p>
                                 </div>
@@ -687,7 +727,7 @@ const RecyclingGuide = () => {
                                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-2">
                                   <div className="flex items-center gap-2 text-green-700 font-semibold mb-1">
                                     <FaRecycle />
-                                    Nairobi Specific
+                                    Nairobi specific
                                   </div>
                                   <p className="text-green-600 text-sm">{step.nairobiTip}</p>
                                 </div>
@@ -708,13 +748,11 @@ const RecyclingGuide = () => {
                       </div>
                     </div>
 
-                    {/* Important Information */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-gray-50">
-                      {/* Don'ts */}
                       <div>
                         <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                           <FaTimesCircle className="text-red-500" />
-                          What to Avoid
+                          What to avoid
                         </h4>
                         <ul className="space-y-2">
                           {selectedGuide.donts.map((dont, index) => (
@@ -726,11 +764,10 @@ const RecyclingGuide = () => {
                         </ul>
                       </div>
 
-                      {/* Nairobi Specific */}
                       <div>
                         <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                           <FaRecycle className="text-green-500" />
-                          Nairobi Considerations
+                          Nairobi considerations
                         </h4>
                         <ul className="space-y-2">
                           {selectedGuide.nairobiSpecific.map((tip, index) => (
@@ -743,11 +780,10 @@ const RecyclingGuide = () => {
                       </div>
                     </div>
 
-                    {/* Environmental Impact */}
                     <div className="p-8 border-t border-gray-200">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h4 className="text-xl font-bold text-gray-800 mb-4">Materials Recovered</h4>
+                          <h4 className="text-xl font-bold text-gray-800 mb-4">Materials recovered</h4>
                           <div className="flex flex-wrap gap-2">
                             {selectedGuide.materialsRecovered.map((material, index) => (
                               <span 
@@ -760,13 +796,12 @@ const RecyclingGuide = () => {
                           </div>
                         </div>
                         <div>
-                          <h4 className="text-xl font-bold text-gray-800 mb-4">Environmental Impact</h4>
+                          <h4 className="text-xl font-bold text-gray-800 mb-4">Environmental impact</h4>
                           <p className="text-gray-600">{selectedGuide.environmentalImpact}</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Action Buttons */}
                     <div className="p-8 bg-gray-50 border-t border-gray-200">
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link 
@@ -774,12 +809,12 @@ const RecyclingGuide = () => {
                           className="flex-1 bg-green-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition-colors text-center flex items-center justify-center gap-3"
                         >
                           <FaRecycle />
-                          Find Recycling Centers
+                          Find recycling centers
                           <FaArrowRight />
                         </Link>
                         <button className="flex-1 border-2 border-green-600 text-green-600 py-4 rounded-xl font-bold text-lg hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center gap-3">
                           <FaDownload />
-                          Download PDF Guide
+                          Download PDF guide
                         </button>
                       </div>
                     </div>
@@ -791,7 +826,6 @@ const RecyclingGuide = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -813,12 +847,10 @@ const RecyclingGuide = () => {
         </div>
       </section>
 
-      {/* Footer Component */}
     </div>
   );
 };
 
-// FAQ Items
 const faqItems = [
   {
     question: "Why can't I just throw electronics in regular trash?",
