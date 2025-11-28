@@ -294,7 +294,7 @@ const Home = () => {
                 <div className="text-gray-600">Partner locations</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">200+</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">2+</div>
                 <div className="text-gray-600">Tons CO₂ reduced</div>
               </div>
             </div>
