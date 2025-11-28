@@ -2,28 +2,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
-  FaGavel,
-  FaFileAlt,
-  FaShieldAlt,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaIndustry,
-  FaUserTie,
-  FaBalanceScale,
-  FaSearch,
-  FaDownload,
-  FaArrowRight,
-  FaBook,
-  FaUniversity,
-  FaHandshake,
-  FaAward
+  FaSearch, FaGavel, FaUniversity, FaUserTie, FaDownload, 
+  FaBook, FaExclamationTriangle, FaHandshake, FaListAlt, 
+  FaClipboardCheck, FaCalendarAlt, FaCheckCircle, FaQuestionCircle, FaBalanceScale, FaIndustry
 } from 'react-icons/fa';
 
 const Regulations = () => {
   const [activeCategory, setActiveCategory] = useState('overview');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Kenyan e-waste regulations and laws
   const regulationsData = {
     overview: {
       title: "Kenyan E-Waste Regulatory Framework",
@@ -239,223 +226,268 @@ const Regulations = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Component */}
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
-              <FaGavel className="text-blue-300" />
-              <span className="text-blue-300 font-semibold">Legal Framework</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              E-Waste <span className="text-yellow-300">Regulations</span> in Kenya
-            </h1>
-            
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Comprehensive guide to Kenyan laws, policies, and compliance requirements for electronic waste management. Stay informed and compliant.
-            </p>
+      <section className="relative bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900 text-white py-20 -mt-28 overflow-hidden">
+  <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+  
+  <div className="absolute top-20 left-20 text-3xl opacity-20">⚖️</div>
+  <div className="absolute bottom-32 right-32 text-2xl opacity-25">📜</div>
 
-            {/* Search Bar */}
-            <div className="bg-white rounded-xl p-2 shadow-2xl max-w-2xl mx-auto">
-              <div className="relative">
-                <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search regulations, compliance, penalties..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 text-gray-800 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg"
-                />
-              </div>
-            </div>
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-6xl mx-auto text-center">
+      <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8">
+        <FaGavel className="text-yellow-300 text-lg" />
+        <span className="text-yellow-300 font-semibold tracking-wide">LEGAL FRAMEWORK</span>
+        <div className="w-1 h-1 bg-yellow-300 rounded-full"></div>
+      </div>
+      
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        E-waste regulations in{' '}
+        <span className="text-yellow-300 bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
+          Kenya
+        </span>
+      </h1>
+      
+      <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Your complete guide to Kenyan e-waste laws, compliance requirements, and environmental policies. 
+        Stay informed and protect your business.
+      </p>
+
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-2 shadow-2xl max-w-2xl mx-auto border border-white/20">
+        <div className="relative">
+          <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-yellow-300 text-xl" />
+          <input
+            type="text"
+            placeholder="Search regulations, compliance, penalties, NEMA guidelines..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-12 pr-20 py-5 text-gray-900 rounded-xl border-0 focus:ring-2 focus:ring-yellow-300 focus:outline-none text-lg bg-white/95 backdrop-blur-sm transition-all duration-300 placeholder:text-gray-500"
+          />
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <kbd className="px-2 py-1 text-xs font-mono text-gray-500 bg-gray-100 rounded border hidden sm:inline-block">⌘F</kbd>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Main Content */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-              
-              {/* Categories Sidebar */}
-              <div className="lg:col-span-1">
-                <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-4">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Regulation Categories</h3>
-                  <div className="space-y-2">
-                    {categories.map(category => (
-                      <button
-                        key={category.id}
-                        onClick={() => setActiveCategory(category.id)}
-                        className={`w-full text-left p-4 rounded-xl transition-all ${
-                          activeCategory === category.id
-                            ? 'bg-blue-500 text-white shadow-md'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`text-xl ${
-                            activeCategory === category.id ? 'text-white' : 'text-blue-500'
-                          }`}>
-                            {category.icon}
-                          </div>
-                          <div className="font-semibold">{category.name}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Quick Compliance Checklist */}
-                  <div className="mt-8 pt-6 border-t border-gray-200">
-                    <h4 className="text-lg font-bold text-gray-800 mb-4">Quick Compliance Check</h4>
-                    <div className="space-y-3">
-                      {complianceChecklist.map((item, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                          <FaCheckCircle className="text-green-500 flex-shrink-0" />
-                          <div className="flex-1">
-                            <div className="text-sm font-medium text-gray-800">{item.item}</div>
-                            <div className="text-xs text-gray-500">
-                              {item.required} • {item.deadline}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Regulation Content */}
-              <div className="lg:col-span-3">
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  {/* Regulation Header */}
-                  <div className="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-8">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                      <div>
-                        <h2 className="text-3xl font-bold mb-2">{selectedRegulation.title}</h2>
-                        <p className="text-blue-100 text-lg">{selectedRegulation.description}</p>
-                      </div>
-                      <div className="mt-4 lg:mt-0 lg:text-right">
-                        <div className="flex items-center gap-2 text-blue-200">
-                          <FaUniversity />
-                          <span>{selectedRegulation.authority}</span>
-                        </div>
-                        <div className="text-blue-200 text-sm mt-1">
-                          Last updated: {new Date(selectedRegulation.lastUpdated).toLocaleDateString()}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Regulation Content */}
-                  <div className="p-8">
-                    <article 
-                      className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-800 prose-table:text-gray-700"
-                      dangerouslySetInnerHTML={{ __html: selectedRegulation.content }}
-                    />
-                  </div>
-
-                  {/* Action Section */}
-                  <div className="p-8 bg-gray-50 border-t border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">Need Help with Compliance?</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <Link 
-                        href="/contact" 
-                        className="bg-blue-600 text-white p-4 rounded-lg text-center hover:bg-blue-700 transition-colors"
-                      >
-                        <FaUserTie className="text-xl mx-auto mb-2" />
-                        <div className="font-semibold">Consult Experts</div>
-                        <div className="text-blue-100 text-sm">Get professional guidance</div>
-                      </Link>
-                      <a 
-                        href="#" 
-                        className="bg-green-600 text-white p-4 rounded-lg text-center hover:bg-green-700 transition-colors"
-                      >
-                        <FaDownload className="text-xl mx-auto mb-2" />
-                        <div className="font-semibold">Download Guides</div>
-                        <div className="text-green-100 text-sm">Compliance checklists</div>
-                      </a>
-                      <Link 
-                        href="/education" 
-                        className="bg-purple-600 text-white p-4 rounded-lg text-center hover:bg-purple-700 transition-colors"
-                      >
-                        <FaBook className="text-xl mx-auto mb-2" />
-                        <div className="font-semibold">Learn More</div>
-                        <div className="text-purple-100 text-sm">Educational resources</div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Additional Resources */}
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <FaExclamationTriangle className="text-yellow-600 text-2xl" />
-                      <h3 className="text-xl font-bold text-gray-800">Important Updates</h3>
-                    </div>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• New EPR regulations effective July 2024</li>
-                      <li>• Updated import restrictions on used electronics</li>
-                      <li>• County licensing requirements being standardized</li>
-                      <li>• Enhanced penalties for illegal dumping</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <FaHandshake className="text-green-600 text-2xl" />
-                      <h3 className="text-xl font-bold text-gray-800">Government Partners</h3>
-                    </div>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• National Environment Management Authority (NEMA)</li>
-                      <li>• Kenya Bureau of Standards (KEBS)</li>
-                      <li>• County Governments</li>
-                      <li>• Ministry of Environment</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Compliance CTA */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Stay <span className="text-yellow-300">Compliant</span>, Stay <span className="text-green-300">Protected</span>
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Ensure your business or organization meets all Kenyan e-waste regulations with our comprehensive compliance tools and expert guidance.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center justify-center gap-3"
-            >
-              <FaUserTie />
-              Compliance Consultation
-              <FaArrowRight />
-            </Link>
-            <a 
-              href="#" 
-              className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
-            >
-              <FaDownload />
-              Download Regulations
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer Component */}
+      <div className="flex flex-wrap justify-center gap-3 mt-8">
+        {['NEMA guidelines', 'EPRA compliance', 'Penalties', 'Extended producer responsibility', 'Waste management act'].map((tag) => (
+          <button
+            key={tag}
+            className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-blue-100 text-2sm hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
     </div>
+  </div>
+
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+    <svg 
+      viewBox="0 0 1200 120" 
+      preserveAspectRatio="none" 
+      className="relative block w-full h-12"
+    >
+      <path 
+        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
+        opacity=".25" 
+        className="fill-white"
+      ></path>
+      <path 
+        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" 
+        opacity=".5" 
+        className="fill-white"
+      ></path>
+      <path 
+        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" 
+        className="fill-white"
+      ></path>
+    </svg>
+  </div>
+</section>
+
+      <section className="py-12 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <div className="lg:col-span-1">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sticky top-4">
+            <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <FaListAlt className="text-blue-600" />
+              Regulation categories
+            </h3>
+            <div className="space-y-2">
+              {categories.map(category => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+                    activeCategory === category.id
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
+                      : 'bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 border border-gray-200'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`text-xl ${
+                      activeCategory === category.id ? 'text-white' : 'text-blue-600'
+                    }`}>
+                      {category.icon}
+                    </div>
+                    <div className="font-semibold text-sm">{category.name}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <FaClipboardCheck className="text-green-600" />
+                Quick compliance check
+              </h4>
+              <div className="space-y-3">
+                {complianceChecklist.map((item, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <FaCheckCircle className="text-green-500 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <div className="text-sm font-medium text-gray-800">{item.item}</div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        <span className="font-semibold">{item.required}</span> • {item.deadline}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-3">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <div className="bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 text-white p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="relative z-10">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                  <div>
+                    <h2 className="text-3xl font-bold mb-2">{selectedRegulation.title}</h2>
+                    <p className="text-blue-100 text-lg leading-relaxed">{selectedRegulation.description}</p>
+                  </div>
+                  <div className="mt-4 lg:mt-0 lg:text-right">
+                    <div className="flex items-center gap-2 text-blue-200 justify-center lg:justify-end">
+                      <FaUniversity className="text-yellow-300" />
+                      <span className="font-semibold">{selectedRegulation.authority}</span>
+                    </div>
+                    <div className="text-blue-200 text-sm mt-1 flex items-center gap-1 justify-center lg:justify-end">
+                      <FaCalendarAlt className="text-xs" />
+                      Updated: {new Date(selectedRegulation.lastUpdated).toLocaleDateString()}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-8">
+              <article 
+                className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-800 prose-table:text-gray-700 prose-a:text-blue-600 hover:prose-a:text-blue-700"
+                dangerouslySetInnerHTML={{ __html: selectedRegulation.content }}
+              />
+            </div>
+
+            <div className="p-8 bg-gradient-to-r from-gray-50 to-blue-50 border-t border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                <FaQuestionCircle className="text-blue-600" />
+                Need help with compliance?
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Link 
+                  href="/contact" 
+                  className="group bg-white border border-blue-200 p-6 rounded-xl text-center hover:shadow-lg hover:border-blue-300 transition-all duration-300"
+                >
+                  <FaUserTie className="text-2xl text-blue-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                  <div className="font-bold text-gray-800 mb-1">Consult experts</div>
+                  <div className="text-gray-600 text-2sm">Get professional legal guidance</div>
+                </Link>
+                <a 
+                  href="#" 
+                  className="group bg-white border border-green-200 p-6 rounded-xl text-center hover:shadow-lg hover:border-green-300 transition-all duration-300"
+                >
+                  <FaDownload className="text-2xl text-green-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                  <div className="font-bold text-gray-800 mb-1">Download guides</div>
+                  <div className="text-gray-600 text-2sm">Compliance checklists & templates</div>
+                </a>
+                <Link 
+                  href="/education" 
+                  className="group bg-white border border-purple-200 p-6 rounded-xl text-center hover:shadow-lg hover:border-purple-300 transition-all duration-300"
+                >
+                  <FaBook className="text-2xl text-purple-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                  <div className="font-bold text-gray-800 mb-1">Learn more</div>
+                  <div className="text-gray-600 text-2sm">Educational resources & training</div>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Resources */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 border border-yellow-200 rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <FaExclamationTriangle className="text-yellow-600 text-2xl" />
+                <h3 className="text-xl font-bold text-gray-800">Important updates</h3>
+              </div>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>New EPR regulations effective July 2024</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Updated import restrictions on used electronics</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>County licensing requirements being standardized</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Enhanced penalties for illegal dumping</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <FaHandshake className="text-green-600 text-2xl" />
+                <h3 className="text-xl font-bold text-gray-800">Government partners</h3>
+              </div>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>National Environment Management Authority (NEMA)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Kenya Bureau of Standards (KEBS)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>County Governments</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Ministry of Environment</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+</div>
   );
 };
 
