@@ -216,26 +216,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile App CTA (Optional) */}
-      <div className="bg-green-00">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-white text-center md:text-left">
-              <p className="font-semibold">Get the DropMyElectronic app for faster recycling!</p>
-              <p className="text-green-100 text-sm">Available on iOS and Android</p>
-            </div>
-            <div className="flex gap-3">
-              <button className="px-4 py-2 bg-black text-white rounded-lg font-semibold text-sm hover:bg-gray-900 transition-colors">
-                Download for iOS
-              </button>
-              <button className="px-4 py-2 bg-black text-white rounded-lg font-semibold text-sm hover:bg-gray-900 transition-colors">
-                Download for Android
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </footer>
   );
 };

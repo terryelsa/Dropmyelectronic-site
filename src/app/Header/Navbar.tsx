@@ -26,11 +26,9 @@ const Header = () => {
     setIsResourcesOpen(!isResourcesOpen);
   };
 
-  // Mock user authentication - replace with your actual auth logic
   const [user, setUser] = useState<any>(null);
   
   useEffect(() => {
-    // Mock authentication check - replace with your actual auth logic
     const mockUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : null;
     setUser(mockUser);
   }, []);
@@ -39,22 +37,17 @@ const Header = () => {
     localStorage.removeItem('user');
     setUser(null);
     setIsDropdownOpen(false);
-    // Add your actual logout logic here
   };
 
-  // Safe user display name function
   const getUserDisplayName = () => {
     if (!user) return 'User';
     
-    // Try different possible user property names
     const userName = user.username || user.name || user.email?.split('@')[0] || 'User';
     
-    // Capitalize first letter
     return userName.charAt(0).toUpperCase() + userName.slice(1);
   };
 
   useEffect(() => {
-    // Geolocation functionality
     if (navigator.geolocation) {
       const options = {
         enableHighAccuracy: true,
@@ -120,7 +113,6 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-2">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <FaRecycle className="text-white text-lg" />
@@ -175,13 +167,6 @@ const Header = () => {
                     onClick={() => setIsResourcesOpen(false)}
                   >
                     Regulations
-                  </Link>
-                  <Link 
-                    href="/community" 
-                    className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                    onClick={() => setIsResourcesOpen(false)}
-                  >
-                    Community
                   </Link>
                 </div>
               )}
