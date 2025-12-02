@@ -5,7 +5,6 @@ import { FaHeadset, FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaQuestionCirc
 const ContactUs = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -20,17 +19,16 @@ const ContactUs = () => {
             </p>
             <div className="w-24 h-1 bg-green-500 mx-auto mb-12"></div>
 
-            {/* Support Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaComments className="text-3xl text-green-600 mx-auto mb-3" />
                 <div className="text-3xl font-bold text-green-600 mb-1">24/7</div>
-                <div className="text-xl text-gray-600 font-medium">Chat Support</div>
+                <div className="text-xl text-gray-600 font-medium">Chat support</div>
               </div>
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaClock className="text-3xl text-green-600 mx-auto mb-3" />
                 <div className="text-3xl font-bold text-green-600 mb-1">2h</div>
-                <div className="text-xl text-gray-600 font-medium">Avg Response</div>
+                <div className="text-xl text-gray-600 font-medium">Avg response</div>
               </div>
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaTicketAlt className="text-3xl text-green-600 mx-auto mb-3" />
@@ -39,7 +37,7 @@ const ContactUs = () => {
               </div>
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaQuestionCircle className="text-3xl text-green-600 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-green-600 mb-1">500+</div>
+                <div className="text-3xl font-bold text-green-600 mb-1">50+</div>
                 <div className="text-xl text-gray-600 font-medium">FAQs</div>
               </div>
             </div>
@@ -47,60 +45,56 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Support Options */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">How Can We Help You?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">How can we help you?</h2>
             <p className="text-2xl text-gray-600 max-w-2xl mx-auto">
               Choose the support option that works best for you
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Live Chat */}
             <div className="bg-white rounded-2xl p-8 text-center group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-green-100">
               <div className="flex justify-center mb-6">
                 <FaComments className="text-5xl text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Live Chat</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Live chat</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Get instant answers from our support team. Available 24/7 for quick questions and troubleshooting.
               </p>
               <button className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors duration-300 w-full">
-                Start Chat
+                Start chat
               </button>
               <div className="mt-4 flex items-center justify-center text-green-600">
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                <span className="text-xl font-medium">Online Now</span>
+                <span className="text-xl font-medium">Online now</span>
               </div>
             </div>
             
-            {/* Contact Form */}
             <div className="bg-white rounded-2xl p-8 text-center group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-green-100">
               <div className="flex justify-center mb-6">
                 <FaEnvelope className="text-5xl text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Email Support</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Email support</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Send us a detailed message and we&apos;ll get back to you within 2 hours during business hours.
               </p>
-              <Link href="#contact-form" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors duration-300 w-full block">
-                Send Message
+              <Link href="mailto:elsaterry4@gmail.com" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors duration-300 w-full block">
+                Send message
               </Link>
             </div>
             
-            {/* Phone Support */}
             <div className="bg-white rounded-2xl p-8 text-center group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-green-100">
               <div className="flex justify-center mb-6">
                 <FaPhone className="text-5xl text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Phone Support</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Phone support</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Speak directly with our support team for complex issues or immediate assistance.
               </p>
-              <a href="tel:+1234567890" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors duration-300 w-full block">
-                Call Now
+              <a href="tel:+254796825624" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors duration-300 w-full block">
+                Call now
               </a>
               <div className="mt-4 text-2sm text-gray-500">
                 Mon-Fri: 9AM-6PM EST
@@ -110,12 +104,11 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
       <section id="contact-form" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Send Us a Message</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Send us a message</h2>
               <p className="text-2xl text-gray-600">
                 Fill out the form below and we&apos;ll get back to you as soon as possible
               </p>
@@ -180,12 +173,11 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Get in touch</h2>
               <p className="text-2xl text-gray-600">
                 Other ways to reach us
               </p>
@@ -196,7 +188,7 @@ const ContactUs = () => {
                 <FaEnvelope className="text-3xl text-green-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">Email</h3>
                 <a href="mailto:support@dropmyelectronic.com" className="text-green-600 hover:text-green-700">
-                  support@dropmyelectronic.com
+                  elsaterry4@gmail.com
                 </a>
                 <p className="text-gray-500 text-2sm mt-2">General Inquiries</p>
               </div>
@@ -204,8 +196,8 @@ const ContactUs = () => {
               <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
                 <FaPhone className="text-3xl text-green-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">Phone</h3>
-                <a href="tel:+1234567890" className="text-green-600 hover:text-green-700">
-                  +1 (234) 567-890
+                <a href="tel:+254 796 825624" className="text-green-600 hover:text-green-700">
+                  +254 796 825624
                 </a>
                 <p className="text-gray-500 text-2sm mt-2">Mon-Fri: 9AM-6PM EST</p>
               </div>
@@ -224,7 +216,6 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -256,7 +247,6 @@ const ContactUs = () => {
   );
 };
 
-// FAQ Data
 const faqData = [
   {
     question: "How do I find recycling centers near me?",

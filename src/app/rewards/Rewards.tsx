@@ -22,7 +22,6 @@ import {
   FaHandHoldingHeart
 } from 'react-icons/fa';
 
-// Earning Method Component with proper typing
 interface EarningMethodProps {
   icon: React.ReactNode;
   title: string;
@@ -50,7 +49,6 @@ const EarningMethod = ({ icon, title, points, description, color }: EarningMetho
   );
 };
 
-// Reward Card Component
 interface RewardCardProps {
   title: string;
   points: number;
@@ -85,7 +83,6 @@ const RewardCard = ({ title, points, description, icon, category, onRedeem }: Re
   );
 };
 
-// Mock leaderboard data
 const leaderboardData = [
   { id: 1, name: 'Sarah Johnson', points: 3250 },
   { id: 2, name: 'Mike Chen', points: 2980 },
@@ -94,7 +91,6 @@ const leaderboardData = [
   { id: 5, name: 'Priya Patel', points: 2180 },
 ];
 
-// Mock rewards data
 const rewardsData = [
   {
     id: 1,
@@ -179,9 +175,7 @@ const Rewards = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header - You can use the same header component */}
       
-      {/* Hero Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -196,26 +190,25 @@ const Rewards = () => {
             </p>
             <div className="w-24 h-1 bg-green-500 mx-auto mb-12"></div>
 
-            {/* Rewards Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaUsers className="text-2xl text-green-600 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-green-600 mb-1">5K+</div>
+                <div className="text-3xl font-bold text-green-600 mb-1">100+</div>
                 <div className="text-2sm text-gray-600 font-medium">Active Members</div>
               </div>
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaRecycle className="text-2xl text-green-600 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-green-600 mb-1">25K+</div>
+                <div className="text-3xl font-bold text-green-600 mb-1">50+</div>
                 <div className="text-2sm text-gray-600 font-medium">Items Recycled</div>
               </div>
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaCoins className="text-2xl text-green-600 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-green-600 mb-1">1M+</div>
+                <div className="text-3xl font-bold text-green-600 mb-1">10k+</div>
                 <div className="text-2sm text-gray-600 font-medium">Points Earned</div>
               </div>
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <FaTree className="text-2xl text-green-600 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-green-600 mb-1">50T</div>
+                <div className="text-3xl font-bold text-green-600 mb-1">2T</div>
                 <div className="text-2sm text-gray-600 font-medium">CO₂ Reduced</div>
               </div>
             </div>
@@ -223,11 +216,10 @@ const Rewards = () => {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">How It Works</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">How it works</h2>
             <p className="text-2xl text-gray-600 max-w-3xl mx-auto">
               Simple steps to start earning rewards for your eco-friendly actions
             </p>
@@ -241,7 +233,7 @@ const Rewards = () => {
                 </div>
               </div>
               <div className="text-blue-600 text-2xl font-bold mb-2">Step 1</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Recycle Electronics</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Recycle electronics</h3>
               <p className="text-gray-600 leading-relaxed">
                 Bring your old electronics to any certified recycling center in our network.
               </p>
@@ -254,7 +246,7 @@ const Rewards = () => {
                 </div>
               </div>
               <div className="text-green-600 text-2xl font-bold mb-2">Step 2</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Earn Points</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Earn points</h3>
               <p className="text-gray-600 leading-relaxed">
                 Get points based on the type and quantity of electronics you recycle.
               </p>
@@ -267,7 +259,7 @@ const Rewards = () => {
                 </div>
               </div>
               <div className="text-yellow-600 text-2xl font-bold mb-2">Step 3</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Redeem Rewards</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Redeem rewards</h3>
               <p className="text-gray-600 leading-relaxed">
                 Use your points to get discounts, products, or support environmental causes.
               </p>
@@ -276,12 +268,11 @@ const Rewards = () => {
         </div>
       </section>
 
-      {/* Points System */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Points System</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Points system</h2>
               <p className="text-2xl text-gray-600">
                 Earn points for different types of electronic devices
               </p>
@@ -320,33 +311,30 @@ const Rewards = () => {
         </div>
       </section>
 
-      {/* Redeem Points Section */}
       <section className="py-16 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Redeem Your Points</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Redeem your points</h2>
               <p className="text-2xl text-gray-600">
                 Turn your eco-efforts into amazing rewards
               </p>
             </div>
 
-            {/* User Points Summary */}
             <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
               <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="text-center md:text-left mb-6 md:mb-0">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Your Points Balance</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Your points balance</h3>
                   <div className="text-4xl font-bold text-green-600">{userPoints} points</div>
                   <p className="text-gray-600 mt-2">Available for redemption</p>
                 </div>
                 <div className="bg-green-100 rounded-lg p-4 text-center">
-                  <div className="text-green-600 font-bold text-2lg">Ready to Redeem!</div>
+                  <div className="text-green-600 font-bold text-2lg">Ready to redeem!</div>
                   <p className="text-green-700 text-sm">Choose from rewards below</p>
                 </div>
               </div>
             </div>
 
-            {/* Rewards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {rewardsData.map((reward) => (
                 <RewardCard
@@ -361,14 +349,13 @@ const Rewards = () => {
               ))}
             </div>
 
-            {/* No Points Message */}
             {userPoints === 0 && (
               <div className="text-center mt-12 bg-yellow-50 rounded-2xl p-8 border border-yellow-200">
                 <FaCoins className="text-4xl text-yellow-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">No Points Available</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">No points available</h3>
                 <p className="text-gray-600 mb-4">Start recycling electronics to earn points!</p>
                 <Link href="/map" className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
-                  Find Recycling Centers
+                  Find recycling centers
                 </Link>
               </div>
             )}
@@ -376,21 +363,19 @@ const Rewards = () => {
         </div>
       </section>
 
-      {/* Current Points & Leaderboard */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Points Summary */}
               <div className="bg-gradient-to-br from-green-500 to-green-700 rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Your Rewards Dashboard</h3>
+                <h3 className="text-2xl font-bold mb-6">Your rewards dashboard</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span>Current Points:</span>
+                    <span>Current points:</span>
                     <span className="text-2xl font-bold">{userPoints}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span>Recycled Items:</span>
+                    <span>Recycled items:</span>
                     <span className="text-xl font-semibold">15</span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -398,18 +383,17 @@ const Rewards = () => {
                     <span className="text-xl font-semibold">#42</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span>Rewards Redeemed:</span>
+                    <span>Rewards redeemed:</span>
                     <span className="text-xl font-semibold">{redeemedRewards.length}</span>
                   </div>
                 </div>
                 <button className="w-full bg-white text-green-600 py-3 rounded-lg font-bold mt-6 hover:bg-gray-100 transition-colors">
-                  View Full Dashboard
+                  View full dashboard
                 </button>
               </div>
 
-              {/* Leaderboard */}
               <div className="bg-gray-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Top Recyclers</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Top recyclers</h3>
                 <div className="space-y-4">
                   {leaderboardData.map((user, index) => (
                     <div key={user.id} className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
@@ -433,31 +417,29 @@ const Rewards = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-green-500 to-green-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Start Earning Today!</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Start earning today!</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Join thousands of eco-conscious individuals turning e-waste into rewards and making a positive environmental impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/map" className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Find Recycling Centers
+              Find recycling centers
             </Link>
             <Link href="/sign-up" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-green-700 transition-all duration-300 transform hover:-translate-y-1">
-              Join Rewards Program
+              Join rewards program
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Redeem Confirmation Modal */}
       {showRedeemModal && selectedReward && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl p-8 max-w-md w-full">
             <div className="text-center">
               <FaGift className="text-4xl text-green-600 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">Redeem Reward</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Redeem reward</h3>
               <p className="text-gray-600 mb-6">Confirm you want to redeem this reward:</p>
               
               <div className="bg-green-50 rounded-lg p-4 mb-6">
@@ -482,7 +464,7 @@ const Rewards = () => {
                   onClick={confirmRedeem}
                   className="flex-1 bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                 >
-                  Confirm Redeem
+                  Confirm redeem
                 </button>
               </div>
             </div>
@@ -490,7 +472,6 @@ const Rewards = () => {
         </div>
       )}
 
-      {/* Footer - Use the same footer component */}
     </div>
   );
 };

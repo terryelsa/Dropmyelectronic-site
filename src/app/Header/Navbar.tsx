@@ -123,12 +123,10 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <NavItem label="Home" href="/" />
             <NavItem label="About" href="/about" />
             
-            {/* Resources Dropdown */}
             <div className="relative">
               <button 
                 onClick={handleResourcesToggle}

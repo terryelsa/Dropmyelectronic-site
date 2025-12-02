@@ -118,20 +118,17 @@ const FindCenters = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Component Here */}
 
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 to-emerald-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Find E-Waste Recycling Centers in <span className="text-yellow-300">Nairobi</span>
+              Find e-waste recycling centers in <span className="text-yellow-300">Nairobi</span>
             </h1>
             <p className="text-xl text-green-100 mb-8">
               Locate certified recycling facilities near you. Drop off your electronics safely and earn rewards.
             </p>
             
-            {/* Search Bar */}
             <div className="bg-white rounded-xl p-2 shadow-2xl max-w-2xl mx-auto">
               <div className="flex flex-col sm:flex-row gap-2">
                 <div className="flex-1 relative">
@@ -157,12 +154,11 @@ const FindCenters = () => {
         </div>
       </section>
 
-      {/* Filters Section */}
       {showFilters && (
         <section className="bg-white border-b border-gray-200 py-6">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Filter by Device Type</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Filter by device type</h3>
               <div className="flex flex-wrap gap-3">
                 {deviceTypes.map(device => (
                   <button
@@ -184,11 +180,9 @@ const FindCenters = () => {
         </section>
       )}
 
-      {/* Main Content */}
       <section className="py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Location Header */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2 text-green-600">
                 <FaMapMarkerAlt />
@@ -200,7 +194,6 @@ const FindCenters = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Centers List */}
               <div className="space-y-4">
                 {filteredCenters.length > 0 ? (
                   filteredCenters.map(center => (
@@ -212,7 +205,6 @@ const FindCenters = () => {
                       onClick={() => setSelectedCenter(center)}
                     >
                       <div className="p-6">
-                        {/* Header */}
                         <div className="flex justify-between items-start mb-3">
                           <h3 className="text-xl font-bold text-gray-800">{center.name}</h3>
                           <div className="flex items-center gap-1 bg-green-50 text-green-700 px-2 py-1 rounded">
@@ -222,7 +214,6 @@ const FindCenters = () => {
                           </div>
                         </div>
 
-                        {/* Address & Distance */}
                         <div className="flex items-center gap-2 text-gray-600 mb-3">
                           <FaMapMarkerAlt className="text-green-500" />
                           <span className="flex-1">{center.address}</span>
@@ -232,7 +223,6 @@ const FindCenters = () => {
                           </div>
                         </div>
 
-                        {/* Device Types */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {center.types.map((type: string, index: number) => (
                             <span 
@@ -244,7 +234,6 @@ const FindCenters = () => {
                           ))}
                         </div>
 
-                        {/* Contact & Hours */}
                         <div className="flex justify-between items-center text-sm text-gray-600">
                           <div className="flex items-center gap-1">
                             <FaPhone className="text-green-500" />
@@ -256,10 +245,9 @@ const FindCenters = () => {
                           </div>
                         </div>
 
-                        {/* Action Button */}
                         <button className="w-full mt-4 bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
                           <FaCar className="text-sm" />
-                          Get Directions
+                          Get directions
                           <FaArrowRight className="text-sm" />
                         </button>
                       </div>
@@ -277,28 +265,25 @@ const FindCenters = () => {
                       }}
                       className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                     >
-                      Clear Filters
+                      Clear filters
                     </button>
                   </div>
                 )}
               </div>
 
-              {/* Map/Details Sidebar */}
               <div className="bg-white rounded-xl shadow-md p-6 sticky top-4">
                 {selectedCenter ? (
                   <>
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">{selectedCenter.name}</h3>
                     
-                    {/* Map Placeholder */}
                     <div className="bg-gray-200 rounded-lg h-64 mb-4 flex items-center justify-center">
                       <div className="text-center text-gray-600">
                         <FaMapMarkerAlt className="text-3xl text-green-500 mx-auto mb-2" />
-                        <p>Interactive Map</p>
+                        <p>Interactive map</p>
                         <p className="text-sm">Showing location in Nairobi</p>
                       </div>
                     </div>
 
-                    {/* Center Details */}
                     <div className="space-y-4">
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-2">Address</h4>
@@ -317,7 +302,7 @@ const FindCenters = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Operating Hours</h4>
+                        <h4 className="font-semibold text-gray-800 mb-2">Operating hours</h4>
                         <p className="text-gray-600 flex items-center gap-2">
                           <FaClock className="text-green-500" />
                           {selectedCenter.hours}
@@ -338,13 +323,12 @@ const FindCenters = () => {
                         </div>
                       </div>
 
-                      {/* Action Buttons */}
                       <div className="grid grid-cols-2 gap-3 pt-4">
                         <button className="bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
-                          Call Now
+                          Call now
                         </button>
                         <button className="border-2 border-green-600 text-green-600 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors">
-                          Get Directions
+                          Get directions
                         </button>
                       </div>
                     </div>
@@ -353,7 +337,7 @@ const FindCenters = () => {
                   <div className="text-center text-gray-600 h-64 flex items-center justify-center">
                     <div>
                       <FaMapMarkerAlt className="text-4xl text-gray-400 mx-auto mb-4" />
-                      <h3 className="text-xl font-bold mb-2">Select a Center</h3>
+                      <h3 className="text-xl font-bold mb-2">Select a center</h3>
                       <p>Click on a recycling center to view details and location</p>
                     </div>
                   </div>
@@ -364,12 +348,11 @@ const FindCenters = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="bg-green-50 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Can&apos;t Find a Center Near You?
+              Can&apos;t find a center near you?
             </h2>
             <p className="text-gray-600 mb-6">
               We&apos;re constantly expanding our network of certified recycling partners across Nairobi.
@@ -380,20 +363,19 @@ const FindCenters = () => {
                 href="/contact" 
                 className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
-                Request New Location
+                Request new location
               </Link>
               <Link 
                 href="/support" 
                 className="border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors"
               >
-                Contact Support
+                Contact support
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer Component Here */}
     </div>
   );
 };
