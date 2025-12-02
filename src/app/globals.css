@@ -482,6 +482,13 @@ body {
 /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
+/* Leaflet CSS */
+@import 'leaflet/dist/leaflet.css';
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
 
 .hero {
   background-color: var(--mint-cream);
