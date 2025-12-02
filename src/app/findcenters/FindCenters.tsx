@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { 
   FaMapMarkerAlt, 
   FaSearch, 
@@ -17,6 +18,40 @@ import {
   FaTabletAlt,
   FaArrowRight
 } from 'react-icons/fa';
+
+// Dynamically import Leaflet to avoid SSR issues
+const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { 
+  ssr: false 
+});
+const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { 
+  ssr: false 
+});
+const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { 
+  ssr: false 
+});
+const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { 
+  ssr: false 
+});
+
+// Import Leaflet CSS
+import 'leaflet/dist/leaflet.css';
+
+// Fix for default marker icons
+import L from 'leaflet';
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+// Custom recycling icon
+const recyclingIcon = new L.Icon({
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/3095/3095113.png',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40],
+});
 
 const nairobiCenters = [
   {
@@ -92,9 +127,14 @@ const deviceTypes = [
 const FindCenters = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedCenter, setSelectedCenter] = useState<any>(null);
+  const [selectedCenter, setSelectedCenter] = useState<any>(nairobiCenters[0]);
   const [showFilters, setShowFilters] = useState(false);
   const [userLocation, setUserLocation] = useState('Nairobi, Kenya');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const filteredCenters = nairobiCenters.filter(center => {
     const matchesSearch = center.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -116,9 +156,11 @@ const FindCenters = () => {
     );
   };
 
+  const nairobiCenter = { lat: -1.2921, lng: 36.8219 };
+
   return (
     <div className="min-h-screen bg-gray-50">
-
+      {/* Header section remains the same */}
       <section className="bg-gradient-to-br from-green-600 to-emerald-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -276,12 +318,37 @@ const FindCenters = () => {
                   <>
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">{selectedCenter.name}</h3>
                     
-                    <div className="bg-gray-200 rounded-lg h-64 mb-4 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <FaMapMarkerAlt className="text-3xl text-green-500 mx-auto mb-2" />
-                        <p>Interactive map</p>
-                        <p className="text-sm">Showing location in Nairobi</p>
-                      </div>
+                    {/* Functional Map */}
+                    <div className="h-64 w-full rounded-lg overflow-hidden mb-4">
+                      {isClient && (
+                        <MapContainer
+                          center={[selectedCenter.coordinates.lat, selectedCenter.coordinates.lng]}
+                          zoom={14}
+                          style={{ height: '100%', width: '100%' }}
+                          scrollWheelZoom={true}
+                        >
+                          <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                          />
+                          <Marker 
+                            position={[selectedCenter.coordinates.lat, selectedCenter.coordinates.lng]}
+                            icon={recyclingIcon}
+                          >
+                            <Popup>
+                              <div className="p-2">
+                                <h4 className="font-bold text-green-700">{selectedCenter.name}</h4>
+                                <p className="text-sm text-gray-600">{selectedCenter.address}</p>
+                                <div className="mt-2">
+                                  <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
+                                    ⭐ {selectedCenter.rating}
+                                  </span>
+                                </div>
+                              </div>
+                            </Popup>
+                          </Marker>
+                        </MapContainer>
+                      )}
                     </div>
 
                     <div className="space-y-4">
@@ -324,12 +391,20 @@ const FindCenters = () => {
                       </div>
 
                       <div className="grid grid-cols-2 gap-3 pt-4">
-                        <button className="bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        <a
+                          href={`tel:${selectedCenter.phone}`}
+                          className="bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
+                        >
                           Call now
-                        </button>
-                        <button className="border-2 border-green-600 text-green-600 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors">
+                        </a>
+                        <a
+                          href={`https://www.google.com/maps/dir/?api=1&destination=${selectedCenter.coordinates.lat},${selectedCenter.coordinates.lng}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="border-2 border-green-600 text-green-600 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors text-center"
+                        >
                           Get directions
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </>
@@ -375,7 +450,6 @@ const FindCenters = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };

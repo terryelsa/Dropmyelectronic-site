@@ -3,20 +3,18 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   FaRecycle, 
-  FaMapMarkerAlt, 
   FaUser, 
   FaBars, 
   FaTimes,
-  FaSearch,
   FaChevronDown
 } from 'react-icons/fa';
 
 const Header = () => {
   const [isNavbarActive, setIsNavbarActive] = useState(false);
   const [isHeaderActive, setIsHeaderActive] = useState(false);
-  const [locations, setLocation] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
 
   const handleToggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -25,8 +23,6 @@ const Header = () => {
   const handleResourcesToggle = () => {
     setIsResourcesOpen(!isResourcesOpen);
   };
-
-  const [user, setUser] = useState<any>(null);
   
   useEffect(() => {
     const mockUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : null;
@@ -46,42 +42,6 @@ const Header = () => {
     
     return userName.charAt(0).toUpperCase() + userName.slice(1);
   };
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-
-          fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1Ijoic2h1ZW5jZSIsImEiOiJjbG9wcmt3czMwYnZsMmtvNnpmNTRqdnl6In0.vLBhYMBZBl2kaOh1Fh44Bw`)
-            .then(response => response.json())
-            .then(data => {
-              const city = data.features[0].context.find((context: { id: string | string[]; }) => context.id.includes('place'))?.text || 'Unknown';
-              const state = data.features[0].context.find((context: { id: string | string[]; }) => context.id.includes('region'))?.text || 'Unknown';
-              setLocation(`${city}, ${state}`);
-            })
-            .catch(error => {
-              console.error('Error:', error);
-              setLocation('Location unavailable');
-            });
-        },
-        (error) => {
-          console.error(error);
-          setLocation('Enable location access');
-        },
-        options
-      );
-    } else {
-      setLocation('Geolocation not supported');
-    }
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -123,154 +83,138 @@ const Header = () => {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center space-x-8">
-            <NavItem label="Home" href="/" />
-            <NavItem label="About" href="/about" />
-            
-            <div className="relative">
-              <button 
-                onClick={handleResourcesToggle}
-                className="flex items-center gap-1 text-gray-700 hover:text-green-600 font-medium transition-colors group"
-              >
-                Resources
-                <FaChevronDown className={`text-xs transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} />
-              </button>
+          <nav className="hidden lg:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
+            <div className="flex items-center space-x-8">
+              <NavItem label="Home" href="/" />
+              <NavItem label="About" href="/about" />
               
-              {isResourcesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
-                  <Link 
-                    href="/education" 
-                    className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                    onClick={() => setIsResourcesOpen(false)}
-                  >
-                    Education
-                  </Link>
-                  <Link 
-                    href="/recyclingguide" 
-                    className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                    onClick={() => setIsResourcesOpen(false)}
-                  >
-                    Recycling Guides
-                  </Link>
-                  <Link 
-                    href="/impact" 
-                    className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                    onClick={() => setIsResourcesOpen(false)}
-                  >
-                    Environmental Impact
-                  </Link>
-                  <Link 
-                    href="/regulations" 
-                    className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                    onClick={() => setIsResourcesOpen(false)}
-                  >
-                    Regulations
-                  </Link>
-                </div>
-              )}
-            </div>
+              <div className="relative">
+                <button 
+                  onClick={handleResourcesToggle}
+                  className="flex items-center gap-1 text-gray-700 hover:text-green-600 font-medium transition-colors group"
+                >
+                  Resources
+                  <FaChevronDown className={`text-xs transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isResourcesOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
+                    <Link 
+                      href="/education" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Education
+                    </Link>
+                    <Link 
+                      href="/recyclingguide" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Recycling Guides
+                    </Link>
+                    <Link 
+                      href="/impact" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Environmental Impact
+                    </Link>
+                    <Link 
+                      href="/regulations" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Regulations
+                    </Link>
+                  </div>
+                )}
+              </div>
 
-            <NavItem label="Rewards" href="/rewards" />
-            <NavItem label="Contact Us" href="/contactus" />
-            <NavItem label="Find Centers" href="/findcenters" />
+              <NavItem label="Rewards" href="/rewards" />
+              <NavItem label="Contact Us" href="/contactus" />
+              <NavItem label="Find Centers" href="/findcenters" />
+            </div>
           </nav>
 
-          {/* Right Section - Location, Search, Auth */}
-          <div className="flex items-center space-x-4">
-            {/* Location - Desktop */}
-            <div className="hidden md:flex items-center gap-2 text-green-600 font-medium">
-              <FaMapMarkerAlt className="text-sm" />
-              <span className="text-sm">{locations || 'Detecting location...'}</span>
-            </div>
+          <div className="flex items-center space-x-3">
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={handleToggleDropdown}
+                  className="flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-lg hover:bg-green-100 transition-colors group"
+                >
+                  <FaUser className="text-green-600 text-sm" />
+                  <span className="text-green-700 font-medium text-sm">
+                    {getUserDisplayName()}
+                  </span>
+                  <FaChevronDown className={`text-green-600 text-xs transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 w-48 z-50">
+                    <Link 
+                      href="/profile" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      My Profile
+                    </Link>
+                    <Link 
+                      href="/my-rewards" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      My Rewards
+                    </Link>
+                    <Link 
+                      href="/recycling-history" 
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      Recycling History
+                    </Link>
+                    <div className="border-t border-gray-200 my-1"></div>
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="hidden md:flex items-center space-x-3">
+                <Link 
+                  href="/sign-in" 
+                  className="text-green-600 font-medium hover:text-green-700 transition-colors"
+                >
+                  Sign In
+                </Link>
+                <Link 
+                  href="/sign-up" 
+                  className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors"
+                >
+                  Get Started
+                </Link>
+              </div>
+            )}
 
-            {/* Search Icon - Desktop */}
-            <button className="hidden md:flex items-center justify-center w-10 h-10 text-gray-600 hover:text-green-600 transition-colors">
-              <FaSearch className="text-lg" />
+            <button
+              className="lg:hidden text-gray-600 hover:text-green-600 transition-colors p-2"
+              onClick={toggleNavbar}
+              aria-label="toggle menu"
+            >
+              {isNavbarActive ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
             </button>
-
-            {/* User Auth Section */}
-            <div className="flex items-center space-x-3">
-              {user ? (
-                <div className="relative">
-                  <button
-                    onClick={handleToggleDropdown}
-                    className="flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-lg hover:bg-green-100 transition-colors group"
-                  >
-                    <FaUser className="text-green-600 text-sm" />
-                    <span className="text-green-700 font-medium text-sm">
-                      {getUserDisplayName()}
-                    </span>
-                    <FaChevronDown className={`text-green-600 text-xs transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  
-                  {isDropdownOpen && (
-                    <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 w-48 z-50">
-                      <Link 
-                        href="/profile" 
-                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        My Profile
-                      </Link>
-                      <Link 
-                        href="/my-rewards" 
-                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        My Rewards
-                      </Link>
-                      <Link 
-                        href="/recycling-history" 
-                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        Recycling History
-                      </Link>
-                      <div className="border-t border-gray-200 my-1"></div>
-                      <button
-                        onClick={handleLogout}
-                        className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
-                      >
-                        Sign Out
-                      </button>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="hidden md:flex items-center space-x-3">
-                  <Link 
-                    href="/sign-in" 
-                    className="text-green-600 font-medium hover:text-green-700 transition-colors"
-                  >
-                    Sign In
-                  </Link>
-                  <Link 
-                    href="/sign-up" 
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors"
-                  >
-                    Get Started
-                  </Link>
-                </div>
-              )}
-
-              {/* Mobile Menu Button */}
-              <button
-                className="lg:hidden text-gray-600 hover:text-green-600 transition-colors p-2"
-                onClick={toggleNavbar}
-                aria-label="toggle menu"
-              >
-                {isNavbarActive ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <div className={`lg:hidden fixed top-0 left-0 w-full h-full bg-white transform transition-transform duration-300 z-40 ${
           isNavbarActive ? 'translate-x-0' : '-translate-x-full'
         }`}>
           <div className="p-6 h-full flex flex-col">
-            {/* Mobile Header */}
             <div className="flex justify-between items-center mb-8">
               <Link href="/" className="flex items-center gap-3" onClick={closeNavbar}>
                 <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
@@ -286,13 +230,6 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Mobile Location */}
-            <div className="flex items-center gap-3 text-green-600 font-medium mb-6 p-4 bg-green-50 rounded-lg">
-              <FaMapMarkerAlt />
-              <span className="text-sm">{locations || 'Detecting location...'}</span>
-            </div>
-
-            {/* Mobile Navigation Links */}
             <nav className="flex-1 space-y-2">
               <MobileNavItem label="Home" href="/" onClick={closeNavbar} />
               <MobileNavItem label="About" href="/about" onClick={closeNavbar} />
@@ -303,7 +240,6 @@ const Header = () => {
               <MobileNavItem label="Environmental Impact" href="/impact" onClick={closeNavbar} />
             </nav>
 
-            {/* Mobile Auth Section */}
             <div className="pt-6 border-t border-gray-200">
               {user ? (
                 <div className="space-y-4">
@@ -351,7 +287,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Overlay */}
         {isNavbarActive && (
           <div 
             className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
@@ -363,7 +298,6 @@ const Header = () => {
   );
 };
 
-// Desktop Navigation Item Component
 const NavItem = ({ label, href }: { label: string; href: string }) => {
   return (
     <Link 
@@ -376,7 +310,6 @@ const NavItem = ({ label, href }: { label: string; href: string }) => {
   );
 };
 
-// Mobile Navigation Item Component
 const MobileNavItem = ({ label, href, onClick }: { label: string; href: string; onClick?: () => void }) => {
   return (
     <Link 
