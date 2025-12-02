@@ -67,7 +67,7 @@ const Blog: React.FC<BlogPageProps> = ({ params }) => {
     return (
       <div className="text-center py-20">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">blog not found</h1>
-        <p className="text-gray-600 mb-8">the blog you're looking for doesn't exist or has been removed.</p>
+        <p className="text-gray-600 mb-8">the blog you&apos;re looking for doesn't exist or has been removed.</p>
         <Link href="/education" className="text-green-600 hover:text-green-800 font-medium">
           return to education hub
         </Link>
@@ -77,7 +77,6 @@ const Blog: React.FC<BlogPageProps> = ({ params }) => {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* reading progress bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
         <div
           className="h-full bg-green-600 transition-all duration-150"
@@ -85,7 +84,6 @@ const Blog: React.FC<BlogPageProps> = ({ params }) => {
         ></div>
       </div>
 
-      {/* hero section with overlay */}
       <div className="relative h-96 md:h-[500px] w-full">
         <Image
           src={blog.image}
